@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解密进度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0b0f2a;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 30px 20px 40px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #c8daff;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .btn-follow {
+            background: #fb7299;
+        }
+        .btn-follow:hover {
+            background: #fc8aab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 114, 153, 0.3);
+        }
+
+        .btn-timeline {
+            background: #4a7af7;
+        }
+        .btn-timeline:hover {
+            background: #6a92ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 122, 247, 0.3);
+        }
+
+        .btn-qq {
+            background: #4fc3f7;
+        }
+        .btn-qq:hover {
+            background: #6fd4ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #7a9fd8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(150, 190, 255, 0.1);
+            padding-bottom: 4px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #aac3f0;
+        }
+
+        @media (max-width: 600px) {
+            .btn { width: 90%; }
+            .page-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="page-title">✦ 解密进度 ✦</h1>
+
+        <div class="btn-group">
+            <a href="https://b23.tv/lPlBQAz" target="_blank" rel="noopener" class="btn btn-follow">
+                ❤ 关注Xyq_yy谢谢喵
+            </a>
+
+            <a href="time.html" class="btn btn-timeline">
+                📅 事件时间轴
+            </a>
+
+            <!-- QQ群链接已更新 -->
+            <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=Da%2BVrI9B8g%2FhVd25nOZo%2FBqDAkl949gkklzzQ5B3SbfE3W0CFjdnuLl2YuAtcBTT&busi_data=eyJncm91cENvZGUiOiIxMTAxOTYzMTYzIiwidG9rZW4iOiJXcUk0Vnh6U0FSazhON1hXRE1URkRDUURjWHRzZjNXWlcrUDZ5L1U1T0U3ZFlIczZuL2VTMDFNRkFTbDNZMkt1IiwidWluIjoiMTQzNDA5MzI3MCJ9&data=vnKnIWgUr9lr9pMDNcl-l_OYRPWSlbGpctycZ1NiVGYwsYPtWg5ZsU9Tl9jNcVNf-p7pyZgt1zYJeCONWAWKIw&svctype=4&tempid=h5_group_info" target="_blank" rel="noopener" class="btn btn-qq">
+                💬 加入QQ群
+            </a>
+        </div>
+
+        <!-- 返回首页，直接写 index.html -->
+        <a href="index.html" class="back-link">← 返回首页</a>
+
+    </div>
+
+</body>
+</html>

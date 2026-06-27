@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件时间轴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0b0f2a;
+            padding: 20px;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px 20px 40px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #c8daff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 时间轴容器 */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid rgba(150, 190, 255, 0.15);
+        }
+
+        /* 每个事件项 */
+        .event {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* 圆点 */
+        .event::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: #4a7af7;
+            border-radius: 50%;
+            border: 2px solid #0b0f2a;
+            box-shadow: 0 0 0 4px rgba(74, 122, 247, 0.2);
+        }
+
+        .event-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fb7299;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #c8daff;
+            margin-bottom: 6px;
+        }
+
+        .event-desc {
+            font-size: 0.95rem;
+            color: #aac3f0;
+            line-height: 1.6;
+        }
+
+        .event-desc a {
+            color: #6a92ff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(106, 146, 255, 0.2);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .event-desc a:hover {
+            color: #8ab0ff;
+            border-color: rgba(106, 146, 255, 0.5);
+        }
+
+        .event-desc .highlight {
+            color: #fb7299;
+            font-weight: 500;
+        }
+
+        .event-desc .note {
+            font-size: 0.85rem;
+            color: #6a8fc0;
+            font-style: italic;
+        }
+
+        /* 返回链接 */
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #7a9fd8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(150, 190, 255, 0.1);
+            padding-bottom: 4px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #aac3f0;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px 12px 30px; }
+            .page-title { font-size: 1.6rem; }
+            .timeline { padding-left: 20px; }
+            .event::before { left: -28px; width: 12px; height: 12px; }
+            .event-date { font-size: 0.95rem; }
+            .event-title { font-size: 1rem; }
+            .event-desc { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="page-title">📅 事件时间轴</h1>
+
+        <div class="timeline">
+
+            <!-- 5月3日 -->
+            <div class="event">
+                <div class="event-date">2026.05.03</div>
+                <div class="event-title">第九章预热首次爆料</div>
+                <div class="event-desc">
+                    phigros大师赛16进8小组赛公布决赛名单前，官方透露将在 <span class="highlight">6月28日决赛</span> 进行主线第九章的预热。<br />
+                    参考视频：
+                    <a href="https://www.bilibili.com/video/BV1C7RFBVEQd/" target="_blank">BV1C7RFBVEQd</a> ｜
+                    <a href="https://www.bilibili.com/video/BV1SwVa6MEFk/" target="_blank">BV1SwVa6MEFk</a>
+                </div>
+            </div>
+
+            <!-- 5月22日 -->
+            <div class="event">
+                <div class="event-date">2026.05.22</div>
+                <div class="event-title">官方动态附图换源</div>
+                <div class="event-desc">
+                    官方发布动态，评论区发现附图被换源。对比前后图片，发现原图下方为李斯特的老钟谱面，新版被替换。<br />
+                    有玩家计算：<span class="highlight">flick数=2，drag数=9，tap数=7</span>，组合为 <span class="highlight">297</span>，除以老钟物量1500得 <span class="highlight">0.198</span>。<br />
+                    推测 <span class="highlight">百九十八</span> 可能参与第九章谱面制作（与本人此前言论吻合）。
+                </div>
+            </div>
+
+            <!-- 6月5日 -->
+            <div class="event">
+                <div class="event-date">2026.06.05</div>
+                <div class="event-title">PMT票务 & 决赛爆料时间</div>
+                <div class="event-desc">
+                    PMT 第二波票于 <span class="highlight">18:00</span> 发放，3分钟抢完。<br />
+                    官方透露决赛当天 <span class="highlight">16:30~16:35</span> 将进行 phigros 更新爆料（仅有5分钟窗口）。<br />
+                    <span class="note">（注：担任 detuning ARG 作者的 hl 将担任决赛解说）</span>
+                </div>
+            </div>
+
+            <!-- 6月7日 -->
+            <div class="event">
+                <div class="event-date">2026.06.07</div>
+                <div class="event-title">官方更换头像</div>
+                <div class="event-desc">
+                    官方更换了新的头像（具体变化未详述，可能为预热动作）。
+                </div>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back-link">← 返回首页</a>
+
+    </div>
+
+</body>
+</html>

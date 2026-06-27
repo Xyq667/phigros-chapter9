@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第九章预热</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0b0f2a;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            padding: 30px 20px 40px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #c8daff;
+            text-shadow: 0 2px 12px rgba(0, 20, 60, 0.6);
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+        }
+        .logo-sub {
+            font-size: 0.9rem;
+            color: #7a9fd8;
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
+        .main-title {
+            font-size: 2.2rem;
+            color: #c8daff;
+            margin: 10px 0 18px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 6px 0 26px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 32px;
+            border-radius: 4px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-bilibili {
+            background: #fb7299;
+        }
+        .btn-bilibili:hover {
+            background: #fc8aab;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 114, 153, 0.3);
+        }
+
+        .btn-arg {
+            background: #4a7af7;
+        }
+        .btn-arg:hover {
+            background: #6a92ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 122, 247, 0.3);
+        }
+
+        .countdown-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .countdown-item {
+            width: 100%;
+            max-width: 480px;
+            padding: 8px 6px 10px;
+            border-bottom: 1px solid rgba(150, 190, 255, 0.06);
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            color: #aac3f0;
+            margin-bottom: 4px;
+        }
+        .countdown-label .badge {
+            font-size: 0.6rem;
+            color: #7a9fd8;
+            margin-left: 6px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            font-size: 0.9rem;
+            color: #d6e8ff;
+            flex-wrap: wrap;
+        }
+        .countdown-timer .time-block {
+            display: flex;
+            align-items: baseline;
+            gap: 1px;
+            padding: 0 4px;
+        }
+        .countdown-timer .time-num {
+            min-width: 1.6em;
+            text-align: center;
+        }
+        .countdown-timer .time-label {
+            font-size: 0.5rem;
+            color: #6a8fc0;
+            margin-left: 1px;
+        }
+        .countdown-timer .separator {
+            color: #4a6f9a;
+            padding: 0 1px;
+        }
+
+        .countdown-item.expired .countdown-timer .time-num {
+            color: #f5b08a;
+        }
+        .expired-msg {
+            font-size: 0.85rem;
+            color: #f5b08a;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 0.7rem;
+            color: #4a6f9a;
+            border-top: 1px solid rgba(150, 190, 255, 0.06);
+            padding-top: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px 12px 30px; }
+            .btn-group { gap: 12px; flex-direction: column; align-items: center; }
+            .btn { width: 70%; min-width: 160px; padding: 10px 16px; font-size: 0.9rem; }
+            .countdown-item { padding: 6px 4px 8px; }
+            .countdown-timer { font-size: 0.8rem; }
+            .logo-text { font-size: 2.8rem; }
+        }
+        @media (max-width: 400px) {
+            .btn { width: 85%; }
+            .countdown-timer { font-size: 0.7rem; }
+            .countdown-timer .time-num { min-width: 1.4em; }
+            .logo-text { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="logo-text">phigros</div>
+        <div class="logo-sub">— 第九章预热 —</div>
+
+        <h1 class="main-title">第九章预热网站</h1>
+
+        <div class="btn-group">
+            <a href="https://space.bilibili.com/414149787" target="_blank" rel="noopener" class="btn btn-bilibili">
+                ▶ Phigros官方
+            </a>
+            <!-- 直接写文件名，不带 ./ -->
+            <a href="arg.html" class="btn btn-arg">
+                ✦ 解密进度
+            </a>
+        </div>
+
+        <!-- 倒计时（保持不变） -->
+        <div class="countdown-section">
+            <div class="countdown-item" id="countdown-pmt">
+                <div class="countdown-label">PMT <span class="badge">预热启动</span></div>
+                <div class="countdown-timer" id="timer-pmt">
+                    <span class="time-block"><span class="time-num" id="pmt-days">00</span><span class="time-label">天</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="pmt-hours">00</span><span class="time-label">时</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="pmt-minutes">00</span><span class="time-label">分</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="pmt-seconds">00</span><span class="time-label">秒</span></span>
+                </div>
+            </div>
+
+            <div class="countdown-item" id="countdown-teaser">
+                <div class="countdown-label">第九章预热爆料 <span class="badge">情报解禁</span></div>
+                <div class="countdown-timer" id="timer-teaser">
+                    <span class="time-block"><span class="time-num" id="teaser-days">00</span><span class="time-label">天</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="teaser-hours">00</span><span class="time-label">时</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="teaser-minutes">00</span><span class="time-label">分</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="teaser-seconds">00</span><span class="time-label">秒</span></span>
+                </div>
+            </div>
+
+            <div class="countdown-item" id="countdown-update">
+                <div class="countdown-label">第九章预期更新时间 <span class="badge">正式上线</span></div>
+                <div class="countdown-timer" id="timer-update">
+                    <span class="time-block"><span class="time-num" id="update-days">00</span><span class="time-label">天</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="update-hours">00</span><span class="time-label">时</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="update-minutes">00</span><span class="time-label">分</span></span>
+                    <span class="separator">·</span>
+                    <span class="time-block"><span class="time-num" id="update-seconds">00</span><span class="time-label">秒</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">✦ 敬请期待 · 第九章 ✦</div>
+    </div>
+
+    <script>
+        (function() {
+            const targets = [
+                { id: 'pmt', year: 2026, month: 5, day: 28, hour: 12, minute: 0, second: 0 },
+                { id: 'teaser', year: 2026, month: 5, day: 28, hour: 16, minute: 30, second: 0 },
+                { id: 'update', year: 2026, month: 7, day: 31, hour: 20, minute: 0, second: 0 }
+            ];
+
+            const el = {};
+            function initEl() {
+                targets.forEach(t => {
+                    const p = t.id;
+                    el[p] = {
+                        days: document.getElementById(p + '-days'),
+                        hours: document.getElementById(p + '-hours'),
+                        minutes: document.getElementById(p + '-minutes'),
+                        seconds: document.getElementById(p + '-seconds'),
+                        container: document.getElementById('countdown-' + p),
+                    };
+                });
+            }
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function update() {
+                const now = new Date();
+                targets.forEach(t => {
+                    const targetDate = new Date(t.year, t.month, t.day, t.hour, t.minute, t.second);
+                    const diff = targetDate.getTime() - now.getTime();
+                    const e = el[t.id];
+                    if (!e) return;
+                    if (diff <= 0) {
+                        e.container.classList.add('expired');
+                        const timerEl = e.container.querySelector('.countdown-timer');
+                        if (timerEl) timerEl.innerHTML = '<span class="expired-msg">✦ 已开始 ✦</span>';
+                        return;
+                    }
+                    e.container.classList.remove('expired');
+                    const days = Math.floor(diff / 86400000);
+                    const hours = Math.floor((diff % 86400000) / 3600000);
+                    const minutes = Math.floor((diff % 3600000) / 60000);
+                    const seconds = Math.floor((diff % 60000) / 1000);
+                    if (e.days) e.days.textContent = pad(days);
+                    if (e.hours) e.hours.textContent = pad(hours);
+                    if (e.minutes) e.minutes.textContent = pad(minutes);
+                    if (e.seconds) e.seconds.textContent = pad(seconds);
+                });
+            }
+
+            function init() {
+                initEl();
+                update();
+                setInterval(update, 1000);
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+            else init();
+        })();
+    </script>
+
+</body>
+</html>
